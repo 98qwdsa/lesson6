@@ -1,0 +1,44 @@
+.warp {
+    width: 180px;
+    margin: 40px auto;
+    input{
+      width: 100%;
+    }
+    .result{
+      width: 100%;
+      height: 18px;
+      line-height: 18px;
+      background: #ccc;
+      padding:0 2px;
+      margin: 2px 0;
+    }
+    .resultError{
+      width: 100%;
+      height: 18px;
+      line-height: 18px;
+      background: red;
+      padding:0 2px;
+      margin: 2px 0;
+    }
+  }
+  .action_warp {
+    display: flex;
+    flex-wrap: wrap;
+    button{
+      width: 40px;
+      height: 22px;
+      line-height: 22px;
+      margin: 2px;
+    }
+  }
+  
+  .number_warp {
+    display: flex;
+    flex-wrap: wrap;
+    button{
+      width: 40px;
+      height: 40px;
+      margin: 2px;
+    }
+  }
+  
