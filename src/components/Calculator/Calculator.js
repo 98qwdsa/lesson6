@@ -31,7 +31,7 @@ export default class Calculator extends React.Component {
       result: ""
     };
   }
-  // 组件内部的数据最好初始化在改class属性上
+  // 组件内部的数据最好初始化在该class属性上
   error = "";
   //定义计算按钮的初始数据
   nums = [
@@ -122,6 +122,7 @@ export default class Calculator extends React.Component {
       // 如果点击的=,计算算式。 如果错误显示错误提示
       if ("=" === e) {
         try {
+          // eslint-disable-next-line no-eval
           result = eval(this.state.evalStr);
         } catch (e) {
           result = "";
@@ -132,7 +133,9 @@ export default class Calculator extends React.Component {
           this.error = this.errorMsg;
         } else {
           //通过prop的cb属性吧当前计算结果传到父级
-          /**/
+          if(this.props.cb){
+            this.props.cb(result);
+          }
         }
       } else {
         // 如果点击是一般计算方法符号，在当前算术式后面累加
@@ -185,3 +188,4 @@ export default class Calculator extends React.Component {
 }
 //变量申明在class外部在文件加载的时候变量就会初始化一直占用一定空间，且不会随组件初始化而初始化，不会随组件销毁而销毁。
 //变量申明在class外部可以在需要的时候export出去给其他组件使用。
+
