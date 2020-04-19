@@ -131,6 +131,9 @@ export default class Calculator extends React.Component {
           result = "";
           this.error = this.errorMsg;
         } else {
+          if (this.props.cb) {
+            this.props.cb(result)
+          }
           //通过prop的cb属性吧当前计算结果传到父级
           /**/
         }
