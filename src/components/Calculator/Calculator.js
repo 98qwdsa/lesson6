@@ -7,7 +7,7 @@ export class Numbers extends React.Component {
     return (
       <div className="number_warp">
         {/* 根据props传入的数据生成按钮 */}
-        {this.props.nums.map(e =>
+        {this.props.nums.map((e) => (
           <button
             key={e.label}
             onClick={() => {
@@ -16,7 +16,7 @@ export class Numbers extends React.Component {
           >
             {e.label}
           </button>
-        )}
+        ))}
       </div>
     );
   }
@@ -28,7 +28,7 @@ export default class Calculator extends React.Component {
     this.errorMsg = props.errorMsg || "请输入正确的算术式!";
     this.state = {
       evalStr: "",
-      result: ""
+      result: "",
     };
   }
   // 组件内部的数据最好初始化在改class属性上
@@ -36,63 +36,63 @@ export default class Calculator extends React.Component {
   //定义计算按钮的初始数据
   nums = [
     {
-      label: "0"
+      label: "0",
     },
     {
-      label: "1"
+      label: "1",
     },
     {
-      label: "2"
+      label: "2",
     },
     {
-      label: "3"
+      label: "3",
     },
     {
-      label: "4"
+      label: "4",
     },
     {
-      label: "5"
+      label: "5",
     },
     {
-      label: "6"
+      label: "6",
     },
     {
-      label: "7"
+      label: "7",
     },
     {
-      label: "8"
+      label: "8",
     },
     {
-      label: "9"
-    }
+      label: "9",
+    },
   ];
   // 定义算术方法的 初始数据
   funs = [
     {
-      label: "+"
+      label: "+",
     },
     {
-      label: "-"
+      label: "-",
     },
     {
-      label: "*"
+      label: "*",
     },
     {
-      label: "/"
+      label: "/",
     },
     {
-      label: "C"
+      label: "C",
     },
     {
-      label: "="
-    }
+      label: "=",
+    },
   ];
   // 内部的无状态组件方法推荐使用UI前缀区分一下
   UIActions(props) {
     return (
       <div className="action_warp">
         {/* 根据props传入的数据生成按钮 */}
-        {props.funs.map(e =>
+        {props.funs.map((e) => (
           <button
             key={e.label}
             onClick={() => {
@@ -101,12 +101,12 @@ export default class Calculator extends React.Component {
           >
             {e.label}
           </button>
-        )}
+        ))}
       </div>
     );
   }
   //算式方法组件点击后处理方法
-  actionsClick = e => {
+  actionsClick = (e) => {
     // 如果有错误信息，只能点击C按钮
     // 如果点击C按钮清除 错误信息,算式，计算结果
     let evalStr = this.state.evalStr,
@@ -132,7 +132,7 @@ export default class Calculator extends React.Component {
           this.error = this.errorMsg;
         } else {
           //通过prop的cb属性吧当前计算结果传到父级
-          /**/
+          this.props.cb(result);
         }
       } else {
         // 如果点击是一般计算方法符号，在当前算术式后面累加
@@ -143,25 +143,25 @@ export default class Calculator extends React.Component {
     // 同一个逻辑片段不管是逻辑还是肉眼上都要尽可能的减少setState的调用。
     this.setState({
       evalStr,
-      result
+      result,
     });
   };
   //数字按钮点击后的处理方法
-  numClick = e => {
+  numClick = (e) => {
     if ("" === this.error) {
       //直接在当前算式后面累加输入的数字
       this.setState({
-        evalStr: this.state.evalStr + e
+        evalStr: this.state.evalStr + e,
       });
     }
   };
   //手动修改算式的处理方法
-  inputOnChange = e => {
+  inputOnChange = (e) => {
     if ("" === this.error) {
       e.persist();
       //算式显示区域可以手动修改算式
       this.setState({
-        evalStr: e.target.value
+        evalStr: e.target.value,
       });
     }
   };
