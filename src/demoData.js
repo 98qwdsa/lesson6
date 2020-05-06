@@ -7,7 +7,7 @@ const DataSource = {
       _TotalScore += e.score;
     });
     this._Average = (_TotalScore / this._TotalSubject.length).toFixed(2);
-    this.aerageChangeCb && this.aerageChangeCb(this._Average);
+    this.aerageChangeCb && this.aerageChangeCb(isNaN(this._Average) ? 0 : this._Average);
   },
   _addSubject(subject) {
     this._TotalSubject.push(subject);
