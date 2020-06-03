@@ -133,6 +133,7 @@ export default class Calculator extends React.Component {
         } else {
           //通过prop的cb属性吧当前计算结果传到父级
           /**/
+          this.props.cb(result);
         }
       } else {
         // 如果点击是一般计算方法符号，在当前算术式后面累加
@@ -168,6 +169,7 @@ export default class Calculator extends React.Component {
   render() {
     return (
       <div className="warp">
+        <p style={{textAlign:"center"}}></p>
         <input value={this.state.evalStr} onChange={this.inputOnChange} />
         {/* 显示计算结果和错误提示 */}
         <div className={this.error ? "result error" : "result"}>

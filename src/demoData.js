@@ -6,7 +6,8 @@ const DataSource = {
     this._TotalSubject.forEach(e => {
       _TotalScore += e.score;
     });
-    this._Average = (_TotalScore / this._TotalSubject.length).toFixed(2);
+    // this._Average = (_TotalScore / this._TotalSubject.length).toFixed(2);
+    _TotalScore > 0 ? this._Average = (_TotalScore / this._TotalSubject.length).toFixed(2) : this._Average =0;
     this.aerageChangeCb && this.aerageChangeCb(this._Average);
   },
   _addSubject(subject) {
