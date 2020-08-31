@@ -131,8 +131,10 @@ export default class Calculator extends React.Component {
           result = "";
           this.error = this.errorMsg;
         } else {
-          //通过prop的cb属性吧当前计算结果传到父级
-          /**/
+	      //通过prop的cb属性吧当前计算结果传到父级
+          if (this.props.cb) {
+            this.props.cb(result);
+          }
         }
       } else {
         // 如果点击是一般计算方法符号，在当前算术式后面累加

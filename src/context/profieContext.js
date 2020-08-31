@@ -1,8 +1,8 @@
 import React from "react";
 
 const profile = {
-  name: "chunsen.zhao",
-  email: "chunsen.zhao@accenture.com"
+  name: "zijian.xie",
+  email: "zijian.xie@accenture.com"
 };
 export default profile;
 export const NameContext = React.createContext({
